@@ -27,7 +27,7 @@ class GithubApi implements GithubApiProtocol {
     if (response.statusCode == 200) {
       return repositoriesFromJson(response.body);
     } else {
-      throw Exception('Failed to load album');
+      throw Exception('Failed to load api response');
     }
     // return Future.value(Repositories());
     // throw UnimplementedError();
@@ -35,8 +35,6 @@ class GithubApi implements GithubApiProtocol {
 
   @override
   Future<List<GithubRepoCommit>> getRepoComit() async {
-    // TODO: implement getRepoComit
-
     final response = await http
         .get(Uri.parse('https://api.github.com/users/anurag548/repos'));
     if (response.statusCode == 200) {
